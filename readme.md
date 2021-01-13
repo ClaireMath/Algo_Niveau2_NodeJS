@@ -59,7 +59,7 @@ Story 2: File management
 48
 EN TANT QUE Client
 JE VEUX avoir une application en lignes de commande qui me permette de transformer un fichier json donné au format movies.json
-AFIN DE pouvoir ajouter l’année de parution dans le titre en utilisant l’information « realease_date » en seconde dans le fichier JSON.
+AFIN DE pouvoir ajouter l’année de parution dans le titre en utilisant l’information « realease_date » en secondes dans le fichier JSON.
 Definition of Done
 Une application en ligne de commande au format suivant:
 « node index.js –action transform ./movies.json movies.out.json»
