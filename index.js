@@ -2,6 +2,8 @@
 
 // const { stringify } = require("querystring");
 const d = require("./addYearNextToTitle");
+const date = require("./sortDate");
+
 var action = process.argv[2];
 var transform = process.argv[3];
 var fileInput = process.argv[4];
@@ -27,7 +29,13 @@ d.addYear(fileInput, fileOutput);
 let stop = new Date().getTime();
 console.log("L'algo a mis : " + (stop - start) +" millisecondes à s'executer");
 
-
+}
+else if (action === "-action" && process.argv[3] === "sortDate") {
+  let start = new Date().getTime();
+//ici le code à mesurer
+d.addYear(fileInput, fileOutput);
+let stop = new Date().getTime();
+console.log("L'algo a mis : " + (stop - start) +" millisecondes à s'executer");
 
 }
     
