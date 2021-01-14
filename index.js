@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 // exports
-module.exports = {fileInput, fileOutput};
+
 // const { stringify } = require("querystring");
 const a = require("./addYearNextToTitle");
-const sort_dateFILE = require("./sortByYear");
-const sort_titleFILE = require("./sortByTitle");
+const b = require("./sortByYear");
+const c = require("./sortByTitle");
 
 var action = process.argv[2];
 var typeOfAction = process.argv[3];
@@ -45,7 +45,7 @@ if (!action) {
   fileOutput != null && fileOutput.endsWith(".json")
 ) {
   let start = new Date().getTime();
-  a.sortByYear(fileInput, fileOutput);
+  b.sortByYear(fileInput, fileOutput);
   let stop = new Date().getTime();
   console.log(
     "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
