@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 
+// exports
+module.exports = {fileInput, fileOutput};
 // const { stringify } = require("querystring");
-const d = require("./addYearNextToTitle");
+const a = require("./addYearNextToTitle");
+const sort_dateFILE = require("./sortByYear");
+const sort_titleFILE = require("./sortByTitle");
+
 var action = process.argv[2];
-var transform = process.argv[3];
+var typeOfAction = process.argv[3];
 var fileInput = process.argv[4];
 var fileOutput = process.argv[5];
 // var fileOutput = process.argv[6];
-console.log(action + transform + fileInput + fileOutput );
+// console.log(action + typeOfAction + fileInput + fileOutput);
 // Check if the order has been provided.
 if (!action) {
   // Extract the filename
@@ -19,15 +24,45 @@ if (!action) {
   //   ./app.js && ls       -> won't execute ls
   //   ./app.js David && ls -> will execute ls
   // process.exit(1);
-} else if (action === "-action" && process.argv[3] === "transform") {
-
+} else if (
+  action === "-action" &&
+  typeOfAction === "transform" &&
+  fileInput != null && fileInput.endsWith(".json") &&
+  fileOutput != null && fileOutput.endsWith(".json")
+) {
   let start = new Date().getTime();
-//ici le code à mesurer
-d.addYear(fileInput, fileOutput);
-let stop = new Date().getTime();
-console.log("L'algo a mis : " + (stop - start) +" millisecondes à s'executer");
-
-
-
+  //ici le code à mesurer
+  a.addYear(fileInput, fileOutput);
+  let stop = new Date().getTime();
+  console.log(
+    "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
+  );
+  
+} else if (
+  action === "-action" &&
+  typeOfAction === "sort_date" &&
+  fileInput != null && fileInput.endsWith(".json") &&
+  fileOutput != null && fileOutput.endsWith(".json")
+) {
+  let start = new Date().getTime();
+  a.sortByYear(fileInput, fileOutput);
+  let stop = new Date().getTime();
+  console.log(
+    "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
+  );
+} else if (
+  action === "-action" &&
+  typeOfAction === "sort_title" &&
+  fileInput != null && fileInput.endsWith(".json")  &&
+  fileOutput != null && fileOutput.endsWith(".json")
+) {
+  let start = new Date().getTime();
+  sort_titleFILE.sortByTitle(fileInput, fileOutput);
+  let stop = new Date().getTime();
+  console.log(
+    "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
+  );
 }
-    
+else {
+  console.log("Veuillez entrer une ligne de commande correcte.");
+};
