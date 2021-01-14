@@ -20,8 +20,14 @@ if (!action) {
   //   ./app.js David && ls -> will execute ls
   // process.exit(1);
 } else if (action === "-action" && process.argv[3] === "transform") {
-console.log(process.argv[0] + process.argv[1] + process.argv[2] + process.argv[3] + process.argv[4] +process.argv[5]);
-    d.addYear(fileInput, fileOutput);
+
+  let start = new Date().getTime();
+//ici le code à mesurer
+d.addYear(fileInput, fileOutput);
+let stop = new Date().getTime();
+console.log("L'algo a mis : " + (stop - start) +" millisecondes à s'executer");
+
+
 
 }
     
