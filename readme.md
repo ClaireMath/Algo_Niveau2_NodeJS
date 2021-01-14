@@ -102,9 +102,9 @@ Ecrit les titres des films correspondant au résultat dans la console.
 <sorted> valeur « true » si le fichier est trié ou « false »
 Le programme doit pouvoir prendre en compte le fait qu’un fichier json est trié ou non
 Utilisez le fait que le fichier json soit trié si tel est le cas
-Dans le cas où les donné sont trié l’algorithme attendu est O(log(N)). Dans le cas où les donné ne
-sont pas trié l’algorithme attendu O(N). Comparez les temps.
-Dans le cas où les donnée sont trié vous pouvez utiliser une recherche dichotomique pour
+Dans le cas où les données sont triées, l’algorithme attendu est O(log(N)). Dans le cas où les données ne
+sont pas triées l’algorithme attendu O(N). Comparez les temps.
+Dans le cas où les données sont triées vous pouvez utiliser une recherche dichotomique pour
 améliorer votre algorithme.
 
 

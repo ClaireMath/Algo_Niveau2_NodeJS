@@ -1,11 +1,7 @@
-// module.exports = {sortByYear};
 module.exports = {sortByYear};
 
 const fs = require("fs");
-
-// const addYearNextToTitleFILE = require("./addYearNextToTitle");
-// const indexFile = require("./index");
-
+var parsedJsonFile;
 
 function sortByYear (input, output) {
 
@@ -16,7 +12,6 @@ function sortByYear (input, output) {
      
       console.log("ordres ok");
       parsedJsonFile = JSON.parse(data);
-      
       
         for (let i = 0; i < parsedJsonFile.length; i++) {
           var timestamp = parsedJsonFile[i].release_date;

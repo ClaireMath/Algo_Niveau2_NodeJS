@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-// exports
-
 // const { stringify } = require("querystring");
 const a = require("./addYearNextToTitle");
 const b = require("./sortByYear");
@@ -11,7 +9,7 @@ var action = process.argv[2];
 var typeOfAction = process.argv[3];
 var fileInput = process.argv[4];
 var fileOutput = process.argv[5];
-// var fileOutput = process.argv[6];
+
 // console.log(action + typeOfAction + fileInput + fileOutput);
 // Check if the order has been provided.
 if (!action) {
@@ -57,12 +55,25 @@ if (!action) {
   fileOutput != null && fileOutput.endsWith(".json")
 ) {
   let start = new Date().getTime();
+  c.sortByTitle(fileInput, fileOutput);
+  let stop = new Date().getTime();
+  console.log(
+    "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
+  );
+} else if (
+  action === "-action" &&
+  typeOfAction === "search_date" &&
+  fileInput != null && fileInput.endsWith(".json")  &&
+  process.argv[5] != null 
+) {
+  let start = new Date().getTime();
   sort_titleFILE.sortByTitle(fileInput, fileOutput);
   let stop = new Date().getTime();
   console.log(
     "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
   );
 }
+
 else {
   console.log("Veuillez entrer une ligne de commande correcte.");
 };
