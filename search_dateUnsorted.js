@@ -8,7 +8,7 @@ function search_dateUnsorted (input, year) {
           return console.error(err);
         }
        
-        console.log("ordres ok");
+        // console.log("ordres ok");
         parsedJsonFile = JSON.parse(data);
         
           for (let i = 0; i < parsedJsonFile.length; i++) {

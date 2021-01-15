@@ -1,0 +1,15 @@
+1/ Afficher l'année à côté du titre dans nouveau Json :
+node index.js -action transform movies.json titresAvecDates.json
+
+2/ Trier un fichier par date et écrire dans un nouveau Json :
+node index.js -action sort_date titresAvecDates.json sortedByDateWYAT.json 
+
+3/ Trier un fichier par titre et écrire dans un nouveau json :
+node index.js -action sort_title sortedByDateWYAT.json moviesSortedByTitleWYAT.json
+
+4/ Afficher dans la console tous les titres d'une année demandée depuis un tableau NON trié :
+node index.js -action search_date moviesSortedByTitleWYAT.json 2000 false
+
+5/ Afficher dans la console tous les titres d'une année demandée depuis un tableau TRIé :
+node index.js -action search_date sortedByDateWYAT.json 2000 true
+

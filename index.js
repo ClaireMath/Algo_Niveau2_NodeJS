@@ -1,6 +1,4 @@
-#!/usr/bin/env node
-
-// const { stringify } = require("querystring");
+// importing the paths to variables
 const a = require("./addYearNextToTitle");
 const b = require("./sortByYear");
 const c = require("./sortByTitle");
@@ -13,6 +11,7 @@ var typeOfAction = process.argv[3];
 var fileInput = process.argv[4];
 var fileOutput;
 var year;
+// if the given arg is a number, arg = year, else arg = fileoutput
 if (isNaN(process.argv[5]) == true) {
  fileOutput = process.argv[5];
 } else {
@@ -32,6 +31,8 @@ if (!action) {
   //   ./app.js && ls       -> won't execute ls
   //   ./app.js David && ls -> will execute ls
   // process.exit(1);
+
+  // We give the constraints of our
 } else if (
   action === "-action" &&
   typeOfAction === "transform" &&
@@ -92,13 +93,13 @@ else if (
   process.argv[5] != null && isNaN(process.argv[5]) == false && 
   process.argv[6] === "true"
 ) {
-  // let start = new Date().getTime();
-  // e.search_dateSorted(fileInput, year);
-  // let stop = new Date().getTime();
+  let start = new Date().getTime();
+  e.search_dateSorted(fileInput, year);
+  let stop = new Date().getTime();
   console.log(
-    "recherche par année, liste triée"
-    // "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
-  );}
+    "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
+  );
+}
 else {
   console.log("Veuillez entrer une ligne de commande correcte.");
 };
