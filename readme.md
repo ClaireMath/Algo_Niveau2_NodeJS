@@ -94,10 +94,10 @@ Utilisez les algorithmes de tri que vous avez implémentés
 Story 5: Trouver des films par date
 51
 EN TANT QUE Client
-JE VEUX trouver tout les films d’une année donnée.
+JE VEUX trouver tous les films d’une année donnée.
 AFIN DE pouvoir afficher rapidement mes données dans un gros fichier JSON.
 Definition of Done
-Ecrit les titres des films correspondant au résultat dans la console.
+Ecrit les titres des films correspondants au résultat DANS la console.
 « node index.js –action search_date ./movies.json <year> <sorted>»
 <sorted> valeur « true » si le fichier est trié ou « false »
 Le programme doit pouvoir prendre en compte le fait qu’un fichier json est trié ou non
