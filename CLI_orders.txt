@@ -13,3 +13,6 @@ node index.js -action search_date moviesSortedByTitleWYAT.json 2000 false
 5/ Afficher dans la console tous les titres d'une année demandée depuis un tableau TRIé :
 node index.js -action search_date sortedByDateWYAT.json 2000 true
 
+6/ Afficher dans la console le titre du film le plus récent avec un genre donné et un mot clef dans description :
+node index.js -action search_key_word ./movies-copie.json story Action 
+

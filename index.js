@@ -10,16 +10,17 @@ const f = require("./search_key_word");
 var action = process.argv[2];
 var typeOfAction = process.argv[3];
 var fileInput = process.argv[4];
-var fileOutput;
-var year;
-// var key_word;
+var arg5 = process.argv[5];
+var arg6 = process.argv[6];
 
-if (isNaN(process.argv[5]) == true) {
-  fileOutput = process.argv[5];
- } else {
-   year = process.argv[5];
- }
- var sorted = process.argv[6];
+// if (process.argv[5] == Number) {
+//   year = process.argv[5];
+//  } else if (process.argv[5].endsWith(".json")){
+//    fileOutput = process.argv[5];
+//  } else {
+//    keyword = process.argv[5];
+//  }
+
 // if the given arg is a number, arg = year, else arg = fileoutput
 // if (process.argv[5] == Number) {
 //   year = process.argv[5];
@@ -52,64 +53,66 @@ if (!action) {
   fileInput != null &&
   fileInput.endsWith(".json") &&
   fileInput.length > 5 &&
-  fileOutput != null &&
-  fileOutput.endsWith(".json") &&
-  fileOutput.length > 5
+  arg5 != null &&
+  arg5.endsWith(".json") &&
+  arg5.length > 5
 ) {
-  a.addYear(fileInput, fileOutput, start);
+  a.addYear(fileInput, arg5, start);
 } else if (
   action === "-action" &&
   typeOfAction === "sort_date" &&
   fileInput != null &&
   fileInput.endsWith(".json") &&
   fileInput.length > 5 &&
-  fileOutput != null &&
-  fileOutput.endsWith(".json") &&
-  fileOutput.length > 5
+  arg5 != null &&
+  arg5.endsWith(".json") &&
+  arg5.length > 5
 ) {
-  b.sortByYear(fileInput, fileOutput, start);
+  b.sortByYear(fileInput, arg5, start);
 } else if (
   action === "-action" &&
   typeOfAction === "sort_title" &&
   fileInput != null &&
   fileInput.endsWith(".json") &&
   fileInput.length > 5 &&
-  fileOutput != null &&
-  fileOutput.endsWith(".json") &&
-  fileOutput.length > 5
+  arg5 != null &&
+  arg5.endsWith(".json") &&
+  arg5.length > 5
 ) {
-  c.sortByTitle(fileInput, fileOutput, start);
+  c.sortByTitle(fileInput, arg5, start);
 } else if (
   action === "-action" &&
   typeOfAction === "search_date" &&
   fileInput != null &&
   fileInput.endsWith(".json") &&
   fileInput.length > 5 &&
-  process.argv[5] != null &&
-  isNaN(process.argv[5]) == false &&
-  sorted === "false"
+  arg5 != null &&
+  isNaN(arg5) == false &&
+  arg6 === "false"
 ) {
-  d.search_dateUnsorted(fileInput, year, start);
+  d.search_dateUnsorted(fileInput, arg5, start);
 } else if (
   action === "-action" &&
   typeOfAction === "search_date" &&
   fileInput != null &&
   fileInput.endsWith(".json") &&
   fileInput.length > 5 &&
-  process.argv[5] != null && isNaN(process.argv[5]) == false && 
-  process.argv[6] === "true"
+  arg5 != null &&
+  isNaN(arg5) == false &&
+  arg6 === "true"
 ) {
-  e.search_dateSorted(fileInput, year, start);
+  e.search_dateSorted(fileInput, arg5, start);
 } else if (
   action === "-action" &&
-  typeOfAction === "search_key_word" &&
-  fileInput != null &&
-  fileInput.endsWith(".json") &&
-  fileInput.length > 5 &&
-  key_word != null &&
-  genre != null
+  typeOfAction === "search_key_word" 
+  // &&
+  // fileInput != null &&
+  // fileInput.endsWith(".json") &&
+  // fileInput.length > 5 &&
+  // arg5 != null &&
+  // arg6 != null
 ) {
-  // f.search_key_word_with_genre(fileInput, year);
+  f.search_key_word_with_genre(fileInput, arg5, arg6, start);
 } else {
   console.log("Veuillez entrer une ligne de commande correcte.");
 }
