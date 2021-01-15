@@ -2,7 +2,7 @@ module.exports = { search_dateSorted };
 
 const fs = require("fs");
 
-function search_dateSorted(input, year) {
+function search_dateSorted(input, year, start) {
   fs.readFile(input, { encoding: "utf8" }, function (err, data) {
     if (err) {
       return console.error(err);
@@ -57,5 +57,9 @@ function search_dateSorted(input, year) {
         break;
       }
     }
+    let stop = new Date().getTime();
+  console.log(
+    "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
+  );
   });
 }

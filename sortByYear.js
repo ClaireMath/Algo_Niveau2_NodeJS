@@ -3,7 +3,7 @@ module.exports = {sortByYear};
 const fs = require("fs");
 var parsedJsonFile;
 
-function sortByYear (input, output) {
+function sortByYear (input, output, start) {
 
     fs.readFile(input, { encoding: "utf8" }, function (err, data) {
       if (err) {
@@ -60,5 +60,9 @@ function sortByYear (input, output) {
           console.log("Data written to file");
                     
       });
+      let stop = new Date().getTime();
+      console.log(
+        "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
+      );
     });
   }

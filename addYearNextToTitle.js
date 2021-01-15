@@ -5,13 +5,12 @@ const fs = require("fs");
 var parsedJsonFile;
 var data2;
 
-function addYear (input, output) {
+function addYear (input, output, start) {
       
     fs.readFile(input, { encoding: "utf8" }, function (err, data) {
       if (err) {
         return console.error(err);
       }
-      console.log("ordres ok");
       parsedJsonFile = JSON.parse(data);
       
         for (let i = 0; i < parsedJsonFile.length; i++) {
@@ -29,6 +28,11 @@ function addYear (input, output) {
           if (err) return console.error(err);
           console.log("Data written to file");
                     
-      });
+      }); 
+      let stop = new Date().getTime();
+      console.log(
+        "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
+      );
     });
+    
   };
