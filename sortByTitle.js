@@ -3,6 +3,11 @@ const indexFile = require("./index");
 
 const fs = require("fs");
 
+/**
+ * Takes the movies from a file and return them alphabetically sorted into a new file
+ * @param {*} input JSON file containing the movies to start with
+ * @param {*} output JSON file created to recieve the movies in alphabetical order
+ */
 function sortByTitle(input, output, start) {
   fs.readFile(input, { encoding: "utf8" }, function (err, data) {
     if (err) {
@@ -11,17 +16,18 @@ function sortByTitle(input, output, start) {
 
     console.log("ordres ok");
     parsedJsonFile = JSON.parse(data);
-
-    for (let i = 0; i < parsedJsonFile.length; i++) {
-      var title = parsedJsonFile[i].title;
-    }
-
+  
     function swap(from, to) {
       let tmp = parsedJsonFile[to];
       parsedJsonFile[to] = parsedJsonFile[from];
       parsedJsonFile[from] = tmp;
     }
 
+     /**
+ * takes the Parsed JSON from one file and take it to another
+ * @param {*} from origin Parsed JSON
+ * @param {*} to New Parsed JSON
+ */
     function partitionner(premier, dernier, pivot) {
       swap(pivot, dernier);
       j = premier;
@@ -34,7 +40,11 @@ function sortByTitle(input, output, start) {
       swap(dernier, j);
       return j;
     }
-
+/**
+       * Sorts the data in the JSON file and returns it in alphabatical order
+       * @param {*} premier The first element checked in the JSON file
+       * @param {*} dernier The last element checked in the JSON file
+       */
     function tri_rapide(premier, dernier) {
       if (premier < dernier) {
         let pivot = Math.ceil((premier + dernier) / 2);
@@ -49,6 +59,7 @@ function sortByTitle(input, output, start) {
 
     var data2 = JSON.stringify(parsedJsonFile, null, 2);
 
+    //Create the New JSON file with sorted datas
     fs.writeFile(output, data2, function (err) {
       if (err) return console.error(err);
       console.log("Data written to file");

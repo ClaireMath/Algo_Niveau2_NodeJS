@@ -2,6 +2,11 @@ module.exports = { search_dateSorted };
 
 const fs = require("fs");
 
+/**
+ * Prints in the console all movies released a specified year in a chronologically sorted file
+ * @param {*} input JSON file containing the movies to search
+ * @param {*} year The year searched for in the file
+ */
 function search_dateSorted(input, year, start) {
   fs.readFile(input, { encoding: "utf8" }, function (err, data) {
     if (err) {
