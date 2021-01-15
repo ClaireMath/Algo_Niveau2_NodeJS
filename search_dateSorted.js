@@ -6,13 +6,14 @@ const fs = require("fs");
  * Prints in the console all movies released a specified year in a chronologically sorted file
  * @param {*} input JSON file containing the movies to search
  * @param {*} year The year searched for in the file
+ * @param {*} start The start variable we went to get from index file to calculate the execution time of our function 
  */
 function search_dateSorted(input, year, start) {
   fs.readFile(input, { encoding: "utf8" }, function (err, data) {
     if (err) {
       return console.error(err);
     }
-    
+
     parsedJsonFile = JSON.parse(data);
 
     //recherche Dichotomoque
@@ -63,8 +64,8 @@ function search_dateSorted(input, year, start) {
       }
     }
     let stop = new Date().getTime();
-  console.log(
-    "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
-  );
+    console.log(
+      "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
+    );
   });
 }
