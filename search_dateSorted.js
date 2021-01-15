@@ -16,7 +16,7 @@ function search_dateSorted(input, year, start) {
 
     parsedJsonFile = JSON.parse(data);
 
-    //recherche Dichotomoque
+    //recherche Dichotomique
 
     function rechercheDichotomoque(a, start, end) {
       let m = start + Math.ceil((end - start) / 2);
@@ -39,7 +39,7 @@ function search_dateSorted(input, year, start) {
     M = rechercheDichotomoque(year, 0, parsedJsonFile.length - 1);
     W = M - 1;
 
-    //affichage des années antérieurs si jammais il y en a
+    //affichage des années antérieures si jammais il y en a
     for (; W > W - 10; W--) {
       var timestamp = parsedJsonFile[W].release_date;
       const milliseconds = timestamp * 1000;

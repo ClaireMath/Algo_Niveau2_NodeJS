@@ -94,10 +94,15 @@ function search_key_word_with_genre(input, keyWord, genre, start) {
           break;
         }
       }
+      if (L == 1){
+        console.log('Aucun film avec ses caractéristiques')
+      }
     }
     let stop = new Date().getTime();
     console.log(
       "L'algo a mis : " + (stop - start) + " millisecondes à s'executer"
     );
+    
+
   });
 }
